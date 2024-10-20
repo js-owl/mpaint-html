@@ -1,0 +1,9 @@
+#
+User-agent: *
+Disallow: /gallery/
+Disallow: /t/
+Disallow: /r/
+
+Sitemap: https://sowl.ru/sitemap.xml
+
+Host: sowl.ru
