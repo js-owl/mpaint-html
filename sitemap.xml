@@ -5,33 +5,9 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://sowl.ru/</loc>
+  <loc>http://mpaint.ru/</loc>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
-<url>
-  <loc>https://sowl.ru/center/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://sowl.ru/english/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sowl.ru/psiholog/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sowl.ru/logoped/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sowl.ru/vacancy.html</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.60</priority>
-</url>
+
 </urlset>

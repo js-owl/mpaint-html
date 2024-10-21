@@ -1,9 +1,7 @@
 #
 User-agent: *
-Disallow: /gallery/
-Disallow: /t/
-Disallow: /r/
+Disallow: /
 
-Sitemap: https://sowl.ru/sitemap.xml
+Sitemap: http://mpaint.ru/sitemap.xml
 
-Host: sowl.ru
+Host: mpaint.ru
