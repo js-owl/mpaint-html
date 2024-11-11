@@ -2,6 +2,7 @@ let a = 5;
 console.log("api", a);
 
 function makeRequest(url, options = {}) {
+  console.log("|-makeRequest", { url });
   return fetch(url, options).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -14,6 +15,7 @@ function makeRequest(url, options = {}) {
 }
 
 function add(title, content) {
+  console.log("|-add", { title });
   let body = new FormData();
   body.append("title", title);
   body.append("content", content);
