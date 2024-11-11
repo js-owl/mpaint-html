@@ -1,7 +1,7 @@
 <?php
 
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
-$articlesAI = (int)file_get_contents('data/ai.txt');
+$articlesAI = 0; //(int)file_get_contents('data/ai.txt');
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
@@ -51,4 +51,4 @@ switch($_SERVER['REQUEST_METHOD']){
         $res = 'incorrect HTTP method';
 }
 file_put_contents('data/articles', json_encode($articles));
-$res = json_encode($res);
+echo json_encode($res);
