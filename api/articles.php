@@ -1,7 +1,7 @@
 <?php
 
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
-$articlesAI = 0; //(int)file_get_contents('data/ai.txt');
+$articlesAI = (int)file_get_contents('data/ai.txt');
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
