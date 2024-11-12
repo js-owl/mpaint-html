@@ -2,13 +2,14 @@
 $fname = "data/articles.txt";
 if(is_file($fname)){
     $result = file_get_contents($fname);
+    echo "1<br>";
     echo $result;
 } else {
     echo 'error';
 }
 
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
-echo "1";
+echo "2<br>";
 print_r ($articles);
 // $articlesAI = (int)file_get_contents('data/ai.txt');
 
@@ -26,7 +27,7 @@ switch($_SERVER['REQUEST_METHOD']){
         }
         break;
     case 'POST':
-        echo "2";
+        echo "3<br>";
         // $articles[++$articlesAI] = [
         //     'id' => $articlesAI,
         //     'title' => $_POST['title'],
