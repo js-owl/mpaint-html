@@ -1,8 +1,10 @@
 <?php
 
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
-$articlesAI = (int)file_get_contents('data/ai.txt');
-var_dump($articles);
+echo "1";
+print_r ($articles);
+// $articlesAI = (int)file_get_contents('data/ai.txt');
+
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
@@ -17,15 +19,19 @@ switch($_SERVER['REQUEST_METHOD']){
         }
         break;
     case 'POST':
+        echo "2";
         // $articles[++$articlesAI] = [
         //     'id' => $articlesAI,
         //     'title' => $_POST['title'],
         //     'content' => $_POST['content'],
         //     'dt' => date('Y-m-d H:i:s')
         // ];
-        $articles[1] = ['id'=>2, 'title'=>'tb', 'content'=>'cb'];
-        file_put_contents('data/ai', $articlesAI);
-        $res = $articlesAI;
+        $o2 = array("id"=>2, "title"=>"tb", "content"=>"cb");
+        $articles["2"] = $o2;
+        print_r ($articles);
+
+        // file_put_contents('data/ai', $articlesAI);
+        // $res = $articlesAI;
         break;
     case 'PUT':
         $str = file_get_contents('php://input');
@@ -53,4 +59,4 @@ switch($_SERVER['REQUEST_METHOD']){
         $res = 'incorrect HTTP method';
 }
 file_put_contents('data/articles.txt', json_encode($articles));
-echo json_encode($res);
+// echo json_encode($res);
