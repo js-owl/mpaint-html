@@ -1,4 +1,11 @@
 <?php
+$fname = "data/articles.txt";
+if(is_file($fname)){
+    $result = file_get_contents($fname);
+    echo $result;
+} else {
+    echo 'error';
+}
 
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
 echo "1";
