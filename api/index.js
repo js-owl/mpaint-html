@@ -14,6 +14,14 @@ function makeRequest(url, options = {}) {
   });
 }
 
+function all() {
+  return makeRequest(`https://mpaint.ru/api/articles.php`);
+}
+
+function one(id) {
+  return makeRequest(`/js-frontend-api/articles.php?id=${id}`);
+}
+
 function add(title, content) {
   console.log("|-add", { title });
   let body = new FormData();
@@ -26,4 +34,6 @@ function add(title, content) {
   });
 }
 
-add("title a", "content" + Math.random());
+console.log("all", all());
+console.log("one", one("1"));
+// add("title a", "content" + Math.random());

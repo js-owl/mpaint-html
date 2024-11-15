@@ -1,10 +1,22 @@
 <?php
-$id = $_GET["id"];
 $ar = array();
 $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
-$o2 = array("id" => 2, "t" => "ta"); $ar['2'] = $o2;
-$res = json_encode($ar[$id]);
-echo $res;
+$o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
+
+switch($_SERVER['REQUEST_METHOD']){
+    case 'GET':
+        if(isset($_GET['id'])){
+            if(isset($ar[$_GET['id']])){
+                $res = $ar[$_GET['id']];
+            } else {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+            }
+        } else {
+            $res = array_values($ar);
+        }
+        break;
+}
+echo json_encode($res);
 
 // $fname = "data/articles.txt";
 // if(is_file($fname)){
