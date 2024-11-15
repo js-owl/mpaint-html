@@ -19,7 +19,7 @@ function all() {
 }
 
 function one(id) {
-  return makeRequest(`/js-frontend-api/articles.php?id=${id}`);
+  return makeRequest(`https://mpaint.ru/api/articles.php?id=${id}`);
 }
 
 function add(title, content) {
