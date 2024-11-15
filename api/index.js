@@ -34,6 +34,5 @@ function add(title, content) {
   });
 }
 
-console.log("all", all());
-console.log("one", one("1"));
-// add("title a", "content" + Math.random());
+all().then(console.log()).catch(console.warn);
+one("1").then(console.log()).catch(console.warn);
