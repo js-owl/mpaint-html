@@ -1,6 +1,3 @@
-let a = 5;
-console.log("api", a);
-
 function makeRequest(url, options = {}) {
   console.log("|-makeRequest", { url });
   return fetch(url, options).then((response) => {
@@ -36,3 +33,4 @@ function add(title, content) {
 
 all().then(console.log).catch(console.warn);
 one("1").then(console.log).catch(console.warn);
+one("3").then(console.log).catch(console.warn);

@@ -2,6 +2,13 @@
 $ar = array();
 $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
 $o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
+echo $ar;
+print_r ($ar);
+echo "<br><br>";
+
+$articles = json_decode(file_get_contents('data/articles.txt'), true);
+echo $articles;
+print_r ($articles);
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
