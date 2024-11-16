@@ -3,7 +3,7 @@
 // $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
 // $o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
 // $j = json_encode($ar);
-// file_put_contents('db.txt', $j);
+// file_put_contents('db.json', $j);
 // ---------------------------------------------------------------
 $f = file_get_contents('db.json');
 $articles = json_decode($f, true);
@@ -26,6 +26,7 @@ switch($_SERVER['REQUEST_METHOD']){
         $res = $len;
         break;
 }
+file_put_contents('db.json', json_encode($articles));
 echo json_encode($res);
 
 // switch($_SERVER['REQUEST_METHOD']){
