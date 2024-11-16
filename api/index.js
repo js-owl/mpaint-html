@@ -34,5 +34,5 @@ function add(title, content) {
   });
 }
 
-all().then(console.log()).catch(console.warn);
-one("1").then(console.log()).catch(console.warn);
+all().then(console.log).catch(console.warn);
+one("1").then(console.log).catch(console.warn);
