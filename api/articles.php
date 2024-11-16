@@ -11,7 +11,7 @@ $articles = json_decode($f, true);
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
         if(isset($_GET['id'])){
-            if(isset($ar[$_GET['id']])){
+            if(isset($articles[$_GET['id']])){
                 $res = $articles[$_GET['id']];
             } else {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
