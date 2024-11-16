@@ -1,5 +1,6 @@
+const url = "https://mpaint.ru/api/articles.php";
+
 function makeRequest(url, options = {}) {
-  console.log("|-makeRequest", { url });
   return fetch(url, options).then((response) => {
     if (response.status === 200) {
       return response.json();
@@ -12,20 +13,21 @@ function makeRequest(url, options = {}) {
 }
 
 function all() {
-  return makeRequest(`https://mpaint.ru/api/articles.php`);
+  console.log("|-all");
+  return makeRequest(url);
 }
 
 function one(id) {
+  console.log("|-one", { id });
   return makeRequest(`https://mpaint.ru/api/articles.php?id=${id}`);
 }
 
-function add(title, content) {
-  console.log("|-add", { title });
+function add(t) {
+  console.log("|-add", { t });
   let body = new FormData();
-  body.append("title", title);
-  body.append("content", content);
+  body.append("t", t);
 
-  return makeRequest(`https://mpaint.ru/api/articles.php`, {
+  return makeRequest(url, {
     method: "POST",
     body,
   });
@@ -33,4 +35,6 @@ function add(title, content) {
 
 all().then(console.log).catch(console.warn);
 one("1").then(console.log).catch(console.warn);
+add("td").then(console.log).catch(console.warn);
+
 one("3").then(console.log).catch(console.warn);

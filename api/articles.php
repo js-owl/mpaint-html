@@ -5,8 +5,9 @@
 // $j = json_encode($ar);
 // file_put_contents('db.txt', $j);
 // ---------------------------------------------------------------
-$f = file_get_contents('db.txt');
+$f = file_get_contents('db.json');
 $articles = json_decode($f, true);
+$len = count($articles);
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
@@ -20,21 +21,15 @@ switch($_SERVER['REQUEST_METHOD']){
             $res = array_values($articles);
         }
         break;
+    case 'POST':
+        $articles[++$len] = array("id" => $len, "t" => "tc");
+        $res = $len;
+        break;
 }
 echo json_encode($res);
 
 // switch($_SERVER['REQUEST_METHOD']){
-//     case 'GET':
-//         if(isset($_GET['id'])){
-//             if(isset($articles[$_GET['id']])){
-//                 $res = $articles[$_GET['id']];
-//             } else {
-//                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-//             }
-//         } else {
-//             $res = array_values($articles);
-//         }
-//         break;
+
 //     case 'POST':
 //         echo "3<br>";
 //         // $articles[++$articlesAI] = [
