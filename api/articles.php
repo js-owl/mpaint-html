@@ -2,54 +2,26 @@
 // $ar = array();
 // $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
 // $o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
-
-// switch($_SERVER['REQUEST_METHOD']){
-//     case 'GET':
-//         if(isset($_GET['id'])){
-//             if(isset($ar[$_GET['id']])){
-//                 $res = $ar[$_GET['id']];
-//             } else {
-//                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-//             }
-//         } else {
-//             $res = array_values($ar);
-//         }
-//         break;
-// }
-// echo json_encode($res);
+// $j = json_encode($ar);
+// file_put_contents('db.txt', $j);
 // ---------------------------------------------------------------
-$articles = json_decode(file_get_contents('data/articles.txt'), true);
-// echo $articles;
-// print_r ($articles);
+$f = file_get_contents('db.txt');
+$articles = json_decode($f, true);
+
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
         if(isset($_GET['id'])){
             if(isset($ar[$_GET['id']])){
-                $res2 = $articles[$_GET['id']];
+                $res = $articles[$_GET['id']];
             } else {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
             }
         } else {
-            $res2 = array_values($articles);
+            $res = array_values($articles);
         }
         break;
 }
-echo json_encode($res2);
-
-// $fname = "data/articles.txt";
-// if(is_file($fname)){
-//     $result = file_get_contents($fname);
-//     echo "1<br>";
-//     echo $result;
-// } else {
-//     echo 'error';
-// }
-
-// $articles = json_decode(file_get_contents('data/articles.txt'), true);
-// echo "2<br>";
-// print_r ($articles);
-// // $articlesAI = (int)file_get_contents('data/ai.txt');
-
+echo json_encode($res);
 
 // switch($_SERVER['REQUEST_METHOD']){
 //     case 'GET':
