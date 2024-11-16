@@ -2,13 +2,9 @@
 $ar = array();
 $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
 $o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
-echo $ar;
-print_r ($ar);
-echo "<br><br>";
-
-$articles = json_decode(file_get_contents('data/articles.txt'), true);
-echo $articles;
-print_r ($articles);
+// echo $ar;
+// print_r ($ar);
+// echo "<br><br>";
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
@@ -24,6 +20,24 @@ switch($_SERVER['REQUEST_METHOD']){
         break;
 }
 echo json_encode($res);
+// ---------------------------------------------------------------
+$articles = json_decode(file_get_contents('data/articles.txt'), true);
+// echo $articles;
+// print_r ($articles);
+switch($_SERVER['REQUEST_METHOD']){
+    case 'GET':
+        if(isset($_GET['id'])){
+            if(isset($ar[$_GET['id']])){
+                $res2 = $articles[$_GET['id']];
+            } else {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+            }
+        } else {
+            $res2 = array_values($articles);
+        }
+        break;
+}
+echo json_encode($res2);
 
 // $fname = "data/articles.txt";
 // if(is_file($fname)){
