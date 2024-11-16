@@ -1,25 +1,22 @@
 <?php
-$ar = array();
-$o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
-$o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
-// echo $ar;
-// print_r ($ar);
-// echo "<br><br>";
+// $ar = array();
+// $o1 = array("id" => 1, "t" => "ta"); $ar['1'] = $o1;
+// $o2 = array("id" => 2, "t" => "tb"); $ar['2'] = $o2;
 
-switch($_SERVER['REQUEST_METHOD']){
-    case 'GET':
-        if(isset($_GET['id'])){
-            if(isset($ar[$_GET['id']])){
-                $res = $ar[$_GET['id']];
-            } else {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-            }
-        } else {
-            $res = array_values($ar);
-        }
-        break;
-}
-echo json_encode($res);
+// switch($_SERVER['REQUEST_METHOD']){
+//     case 'GET':
+//         if(isset($_GET['id'])){
+//             if(isset($ar[$_GET['id']])){
+//                 $res = $ar[$_GET['id']];
+//             } else {
+//                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+//             }
+//         } else {
+//             $res = array_values($ar);
+//         }
+//         break;
+// }
+// echo json_encode($res);
 // ---------------------------------------------------------------
 $articles = json_decode(file_get_contents('data/articles.txt'), true);
 // echo $articles;
