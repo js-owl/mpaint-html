@@ -7,7 +7,7 @@
 // ---------------------------------------------------------------
 $f = file_get_contents('db.json');
 $articles = json_decode($f, true);
-$len = count($articles);
+$len = (int)file_get_contents('autoinc.txt');
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
@@ -23,6 +23,7 @@ switch($_SERVER['REQUEST_METHOD']){
         break;
     case 'POST':
         $articles[++$len] = array("id" => $len, "t" => $_POST['t'], 'dt' => date('Y-m-d H:i:s'));
+        file_put_contents('autoinc.txt', $len);
         $res = $len;
         break;
     case 'PUT':
