@@ -5,7 +5,15 @@ const url = "https://mpaint.ru/api/articles.php";
 
   const one_raw = await fetch(`https://mpaint.ru/api/articles.php?id=1`);
   const one = await one_raw.json();
-  console.log({ all }, { one });
+
+  let body = new FormData();
+  body.append("t", "td");
+  const post_raw = await fetch(url, {
+    method: "POST",
+    body,
+  });
+  const post = await post_raw.json();
+  console.log({ all }, { one }, { post });
 })();
 // function makeRequest(url, options = {}) {
 //   return fetch(url, options).then((response) => {
