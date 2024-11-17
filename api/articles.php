@@ -38,6 +38,16 @@ switch($_SERVER['REQUEST_METHOD']){
             $res = 'articles not found';
         }
         break;
+    case 'DELETE':
+        if(isset($_GET['id']) && isset($articles[$_GET['id']])){
+            unset($articles[$_GET['id']]);
+            $res = true;
+        } else {
+            $res = "can't remove article";
+        }
+        break;
+    default:
+        $res = 'incorrect HTTP method';
 }
 file_put_contents('db.json', json_encode($articles));
 echo json_encode($res);
