@@ -8,7 +8,6 @@
 $f = file_get_contents('db.json');
 $articles = json_decode($f, true);
 $len = count($articles);
-echo $len;
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
