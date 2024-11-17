@@ -25,6 +25,19 @@ switch($_SERVER['REQUEST_METHOD']){
         $articles[++$len] = array("id" => $len, "t" => $_POST['t'], 'dt' => date('Y-m-d H:i:s'));
         $res = $len;
         break;
+    case 'PUT':
+        $str = file_get_contents('php://input');
+        $res = $str;
+
+        $put = json_decode($str, true);
+        $res = $put['id'];
+
+        if(isset($articles[$put['id']])){
+            $articles[$put['id']]['t'] = $put['t'];
+        } else {
+            $res = 'articles not found';
+        }
+        break;
 }
 file_put_contents('db.json', json_encode($articles));
 echo json_encode($res);

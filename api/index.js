@@ -13,7 +13,14 @@ const url = "https://mpaint.ru/api/articles.php";
     body,
   });
   const post = await post_raw.json();
-  console.log({ all }, { one }, { post });
+
+  const put_raw = await fetch(url, {
+    method: "PUT",
+    body: JSON.stringify({ id: 2, t: "te" }),
+  });
+  const put = await put_raw.json();
+
+  console.log({ all }, { one }, { post }, { put });
 })();
 // function makeRequest(url, options = {}) {
 //   return fetch(url, options).then((response) => {
