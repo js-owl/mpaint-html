@@ -22,7 +22,7 @@ switch($_SERVER['REQUEST_METHOD']){
         }
         break;
     case 'POST':
-        $articles[++$len] = array("id" => $len, "t" => "tc");
+        $articles[++$len] = array("id" => $len, "t" => $_POST['t'], 'dt' => date('Y-m-d H:i:s'));
         $res = $len;
         break;
 }
