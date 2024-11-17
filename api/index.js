@@ -1,6 +1,6 @@
 const url = "https://mpaint.ru/api/articles.php";
 
-(async () => {
+const promise = (async () => {
   const all_raw = await fetch(url);
   const all = await all_raw.json();
 
@@ -28,3 +28,5 @@ const url = "https://mpaint.ru/api/articles.php";
 
   console.log({ all }, { one }, { post }, { put }, { del });
 })();
+
+promise.catch(console.error);
