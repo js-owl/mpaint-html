@@ -4,7 +4,7 @@ const promise = (async () => {
   const all_raw = await fetch(url);
   const all = await all_raw.json();
 
-  const one_raw = await fetch(`https://mpaint.ru/api/articles.php?id=1`);
+  const one_raw = await fetch(`https://mpaint.ru/api/articles.php?id=2`);
   const one = await one_raw.json();
 
   let body = new FormData();
